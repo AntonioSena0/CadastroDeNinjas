@@ -17,4 +17,10 @@ public class NinjaService {
         return repository.findAll();
     }
 
+    // Listar os meus ninjas por id
+    public NinjaModel listarNinjasPorId(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Ninja não encontrado"));
+    }
+
 }
