@@ -23,4 +23,19 @@ public class NinjaService {
                 .orElseThrow(() -> new RuntimeException("Ninja não encontrado"));
     }
 
+    // Criar os meus ninjas
+    public NinjaModel criarNinja(NinjaModel ninjaModel){
+        return repository.save(ninjaModel);
+    }
+
+    public void deletarNinja(Long id) {
+
+        if(!repository.existsById(id)){
+            throw new RuntimeException("Ninja não encontrado");
+        }
+
+        repository.deleteById(id);
+
+    }
+
 }
